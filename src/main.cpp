@@ -3,7 +3,7 @@
 #include <iostream>
 #include <memory>
 
-#include "clang/Frontend/FrontendAction.h"
+#include "clang/Frontend/ASTConsumers.h"
 
 class FindNamedClassAction : public clang::ASTFrontendAction {
 public:

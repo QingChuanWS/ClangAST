@@ -9,12 +9,17 @@
 llvm build
 
 ```
-cmake -G Ninja ../../llvm-project/llvm \
-  -DCMAKE_INSTALL_PREFIX=../llvm-install \
+cd llvm-project
+mkdir build && cd build
+mkdir install
+
+cmake ../llvm \
+  -DCMAKE_INSTALL_PREFIX=./install \
   -DCMAKE_BUILD_TYPE=RelWithDebInfo \
-  -DCMAKE_C_COMPILER=clang-17 \
-  -DCMAKE_CXX_COMPILER=clang++-17 \
-  -DLLVM_ENABLE_PROJECTS="clang" \
+  -DCMAKE_BUILD_WITH_INSTALL_RPATH=ON \
+  -DCMAKE_C_COMPILER=clang \
+  -DCMAKE_CXX_COMPILER=clang++ \
+  -DLLVM_ENABLE_PROJECTS="clang;lld" \
   -DLLVM_TARGETS_TO_BUILD="X86" \
   -DLLVM_ENABLE_RTTI=ON \
   -DLLVM_ENABLE_EH=ON \
